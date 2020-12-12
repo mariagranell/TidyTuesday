@@ -1,0 +1,46 @@
+---
+title: "sunlight"
+author: "Maria"
+date: "11/12/2020"
+output: pdf_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## Parameters
+
+### location
+So I would like to do plots for my location, i.e. Kunsklippan 14
+coordiantes are: 59.330379 lat and 18.048034 lon.
+
+### dates
+I would like several dates:
+
+. This year: 2020-01-01 to 2020-12-10
+. This and last year: 2019-01-01 to 2020-12-10
+
+### type of radiation
+
+. PAR (W/m²): Photosynthetically active radiation, this spectral region corresponds more or less with the range of light visible to the human eye.
+. Global irradiance (W/m²): the total radiation on the surface. Including UV and IR
+. CIE UV irradiance (mW/m²): UVB radiation: The major natural source of the vitamin is synthesis of cholecalciferol in the lower layers of skin epidermis through a chemical reaction that is dependent on sun exposure (specifically UVB radiation).
+
+### string
+
+For this year, kungsklippan, Global irradiance
+
+```{r}
+GET 'https://opendata-download-metanalys.smhi.se/api/category/strang1g/version/1/geotype/point/lon/18.048/lat/59.330/parameter/117/data.json?from=2020-01-01&to=2020-12-10&interval=daily'
+```
+
+## Including Plots
+
+You can also embed plots, for example:
+
+```{r pressure, echo=FALSE}
+plot(pressure)
+```
+
+Note that the `echo = FALSE` parameter was added to the code chunk to prevent printing of the R code that generated the plot.
