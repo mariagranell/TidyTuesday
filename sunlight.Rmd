@@ -35,6 +35,12 @@ For this year, kungsklippan, Global irradiance
 #GET 'https://opendata-download-metanalys.smhi.se/api/category/strang1g/version/1/geotype/point/lon/18.048/lat/59.330/parameter/117/data.json?from=2020-01-01&to=2020-12-10&interval=daily'
 ```
 
+From 2017 to 2020, Kungsklippan, CIE UV irradiance (mW/m²).
+
+```{r, include=FALSE}
+curl GET 'https://opendata-download-metanalys.smhi.se/api/category/strang1g/version/1/geotype/point/lon/18.048/lat/59.330/parameter/116/data.json?from=2017-01-01&to=2020-12-16&interval=daily' > uv2017.json
+```
+
 ## Including Plots
 
 You can also embed plots, for example:
@@ -53,3 +59,5 @@ library("jsonlite") # get a list of key/value vectors, convert that to a two col
 ```
 
 Note that the `echo = FALSE` parameter was added to the code chunk to prevent printing of the R code that generated the plot.
+
+But the glass absorves uv radiation so, it didn't count if you were indoors https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3897598/
