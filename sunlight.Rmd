@@ -31,8 +31,8 @@ I would like several dates:
 
 For this year, kungsklippan, Global irradiance
 
-```{r}
-GET 'https://opendata-download-metanalys.smhi.se/api/category/strang1g/version/1/geotype/point/lon/18.048/lat/59.330/parameter/117/data.json?from=2020-01-01&to=2020-12-10&interval=daily'
+```{r, include=FALSE}
+#GET 'https://opendata-download-metanalys.smhi.se/api/category/strang1g/version/1/geotype/point/lon/18.048/lat/59.330/parameter/117/data.json?from=2020-01-01&to=2020-12-10&interval=daily'
 ```
 
 ## Including Plots
@@ -40,7 +40,16 @@ GET 'https://opendata-download-metanalys.smhi.se/api/category/strang1g/version/1
 You can also embed plots, for example:
 
 ```{r pressure, echo=FALSE}
-plot(pressure)
+
+library(ggplot2)
+library(streamgraph)
+library(gganimate)
+library(dplyr)
+library("rjson") # library to read JSON
+library("jsonlite") # get a list of key/value vectors, convert that to a two column data.frame with stack, rearrange the columns and change the column names (if needed).
+
+  streamgraph(d, "year", "value",  "day", scale="continuous", offset = "zero") %>%
+  sg_fill_brewer("PuOr")
 ```
 
 Note that the `echo = FALSE` parameter was added to the code chunk to prevent printing of the R code that generated the plot.
